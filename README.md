@@ -17,6 +17,6 @@ Both scripts can be found in the `scripts` folder.
 
 ## Visualisation
 
-I aimed for a clean and engaging visualization. You can view the final result here or in the `visualization` folder. Enjoy!
+I aimed for a clean and engaging visualization. You can view the final result here or in the `visualisation` folder. Enjoy!
 
 ![UFO sightings data visualisation](/visualisation/ufo-sightings.png "UFO sightings data visualisation")
