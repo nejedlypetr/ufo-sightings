@@ -1,7 +1,7 @@
 import csv
 
-INPUT_FILE_PATH = "data/ufo-sightings-original.csv"
-OUTPUT_FILE_PATH = "data/ufo-sightings-usa-1993-2013.csv"
+INPUT_FILE_PATH = "data/ufo-sightings-raw.csv"
+OUTPUT_FILE_PATH = "data/ufo-sightings-usa-1993-2013-raw.csv"
 
 
 def filter_csv(input_file, output_file):
