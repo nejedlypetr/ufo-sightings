@@ -70,6 +70,12 @@ def plot_ufo_airport_correlation_log(csv_file):
     y_log = np.log(y)
 
     slope, intercept, r_value, p_value, std_err = linregress(x, y_log)
+    print("Linear regression params:")
+    print("  Slope (β1):", slope)
+    print("  Intercept (β0):", intercept)
+    print("  R-squared value (R²):", r_value**2)
+    print("  P-value (p):", p_value)
+    print("  Standard error (SE):", std_err)
 
     # Plot the correlation graph
     plt.figure(figsize=(10, 6))
@@ -111,18 +117,28 @@ def calculate_percentage_of_sightings_within_distance(csv_file):
     within_5_km = df[df['Nearest_airport_distance'] <= 5].shape[0]
     within_10_km = df[df['Nearest_airport_distance'] <= 10].shape[0]
     within_15_km = df[df['Nearest_airport_distance'] <= 15].shape[0]
+    within_20_km = df[df['Nearest_airport_distance'] <= 20].shape[0]
+    within_25_km = df[df['Nearest_airport_distance'] <= 25].shape[0]
+    within_30_km = df[df['Nearest_airport_distance'] <= 30].shape[0]
 
     # Calculate percentages
     percentage_within_range = (within_range / total_sightings) * 100
     percentage_within_5_km = (within_5_km / total_sightings) * 100
     percentage_within_10_km = (within_10_km / total_sightings) * 100
     percentage_within_15_km = (within_15_km / total_sightings) * 100
+    percentage_within_20_km = (within_20_km / total_sightings) * 100
+    percentage_within_25_km = (within_25_km / total_sightings) * 100
+    percentage_within_30_km = (within_30_km / total_sightings) * 100
+
 
     return {
         'Within 5 to 10 km': percentage_within_range,
         'Within 5 km': percentage_within_5_km,
         'Within 10 km': percentage_within_10_km,
-        'Within 15 km': percentage_within_15_km
+        'Within 15 km': percentage_within_15_km,
+        'Within 20 km': percentage_within_20_km,
+        'Within 25 km': percentage_within_25_km,
+        'Within 30 km': percentage_within_30_km
     }
 
 def calculate_sightings_per_km2(dataset_path, state_data_path):
@@ -158,11 +174,11 @@ if __name__ == "__main__":
     print("Data analysis...\n")
 
     # print("Percentage of sightings within distance:")
-    # print(calculate_percentage_of_sightings_within_distance(DATA_FILE_PATH))
+    print(calculate_percentage_of_sightings_within_distance(DATA_FILE_PATH))
 
     # sightings_per_km2 = calculate_sightings_per_km2(DATA_FILE_PATH, US_STATES_TERRITORIES_PATH)
     # print("Sightings per 100 km²:")
     # print(sightings_per_km2)
 
-    # plot_ufo_airport_correlation(PUBLIC_AIRPORTS_FILE_PATH)
-    # plot_ufo_airport_correlation_log(PUBLIC_AIRPORTS_FILE_PATH)
+    # plot_ufo_airport_correlation(DATA_FILE_PATH)
+    # plot_ufo_airport_correlation_log(DATA_FILE_PATH)
